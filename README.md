@@ -5,7 +5,7 @@ Projeto semestral IA
 > **Atividade 1: Esboço do Planejamento do Projeto de IA**  
 > **Disciplina:** Fundamentos de Inteligência Artificial | **Semestre:** 2026.2  
 > **Docente:** Profª Caroline Pacheco da Rosa  
-> **Estudante:** [Seu Nome Completo]
+> **Estudante:** [Eduardo Piva Nepomoceno]
 
 ---
 
