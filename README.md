@@ -84,7 +84,43 @@ Este problema é tratado idealmente com **IA Baseada em Dados** (Machine Learnin
 | **US09** | Avaliação com métricas (MAE, RMSE, MAPE) | Alta | A Fazer |
 
 ---
+## 🛠️ Pipeline de Machine Learning (Atividade 7)
 
+### 1. Mapeamento do Pipeline do Projeto
+O projeto utiliza uma abordagem de **Aprendizado de Máquina Supervisionado** voltado para **Regressão / Séries Temporais** para prever o volume diário/semanal de vendas de produtos em e-commerce.
+
+| Etapa do Pipeline | O que acontece no projeto | Ferramenta / Biblioteca | Status |
+|---|---|---|---|
+| **1. Coleta / Entrada** | Carregamento do dataset público Olist (histórico de vendas, itens, datas) | `pandas` | ✅ Feito |
+| **2. Limpeza / Preparação** | Tratamento de datas (`datetime`), remoção de registros nulos e outliers | `pandas` / `numpy` | ✅ Feito |
+| **3. Features e Label** | Definição do vetor $X$ (preço, categoria, mês, dia da semana, feriado) e $y$ (quantidade vendida) | `pandas` | ✅ Feito |
+| **4. Divisão dos Dados** | Corte **cronológico** por data (80% histórico passado para treino, 20% futuro recente para teste) | `pandas` (`iloc`) / `scikit-learn` | 🔄 Em andamento |
+| **5. Treinamento do Modelo** | Ajuste dos algoritmos baseline (Regressão Linear / DecisionTree / XGBoost) aos dados | `scikit-learn` | ⬜ Pendente |
+| **6. Avaliação** | Medição de erro de previsão com métricas apropriadas (MAE, RMSE, $R^2$) | `scikit-learn.metrics` | ⬜ Pendente |
+| **7. Saída / Apoio à Decisão** | Dashboard com projeção de demanda e alertas visuais de reposição de estoque | Python / Matplotlib | ⬜ Pendente |
+
+---
+
+### 2. Especificação do Aprendizado de Máquina
+
+* **Tipo de Aprendizado:** **Supervisionado (Regressão / Séries Temporais)**.
+  * *Justificativa:* O modelo aprende a partir de dados históricos rotulados onde o rótulo ($y$) é a quantidade contínua de produtos vendidos em uma determinada janela de tempo.
+* **Checagem de Vazamento de Resposta (*Data Leakage*):**
+  * Verificamos coluna por coluna do dataset. Colunas como "data de entrega real" ou "status do pedido entregue" foram removidas do vetor de features $X$, pois são informações que só existem *após* a venda ter ocorrido. Apenas variáveis conhecidas no momento do planejamento de estoque foram mantidas.
+* **Estratégia de Divisão (Treino e Teste):**
+  * **Divisão Cronológica (Temporal):** Como se trata de série temporal com dependência de datas, **não** utilizaremos divisão aleatória (`train_test_split` tradicional aleatório). Os dados foram ordenados por data e divididos por ponto de corte no tempo para evitar que o modelo consulte dados do futuro durante o treinamento.
+
+---
+
+### 3. Backlog Atualizado (Rumo à AP2)
+
+| Item | Responsável | Status | Critério de Pronto |
+|---|---|---|---|
+| Mapear pipeline e definir $X$ e $y$ | Individual | ✅ Feito | Seção do pipeline e tipos de dados definidos no GitHub e no formulário |
+| Limpeza final e codificação categórica | Individual | 🔄 Em andamento | `df.isnull().sum() == 0` e variáveis prontas para treinamento |
+| Divisão temporal treino/teste | Individual | 🔄 Em andamento | DataFrames $X\_train$, $X\_test$, $y\_train$, $y\_test$ criados cronologicamente |
+| Treinar Modelo Baseline | Individual | ⬜ Pendente | `modelo.fit(X_train, y_train)` executado no Colab sem erro |
+| Calcular Métricas (MAE / RMSE) | Individual | ⬜ Pendente | Métricas de erro calculadas e apresentadas visualmente |
 ## 🤖 10. Declaração de Uso de IA Generativa
 > *"Declaro que utilizei a ferramenta de IA Generativa (Gemini) como apoio para a contextualização do tipo de problema de IA, mapeamento de entradas/saídas, pesquisa de soluções correlatas e organização do README.md. O conteúdo foi revisado, compreendido e validado por mim conforme o manual da disciplina."*
 ## 🤖 7. Declaração de Uso de IA Generativa
