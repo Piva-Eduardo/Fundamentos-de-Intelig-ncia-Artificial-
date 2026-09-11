@@ -86,42 +86,40 @@ Este problema é tratado idealmente com **IA Baseada em Dados** (Machine Learnin
 ---
 ## 🛠️ Pipeline de Machine Learning (Atividade 7)
 
-### 1. Mapeamento do Pipeline do Projeto
-O projeto utiliza uma abordagem de **Aprendizado de Máquina Supervisionado** voltado para **Regressão / Séries Temporais** para prever o volume diário/semanal de vendas de produtos em e-commerce.
-
-| Etapa do Pipeline | O que acontece no projeto | Ferramenta / Biblioteca | Status |
-|---|---|---|---|
-| **1. Coleta / Entrada** | Carregamento do dataset público Olist (histórico de vendas, itens, datas) | `pandas` | ✅ Feito |
-| **2. Limpeza / Preparação** | Tratamento de datas (`datetime`), remoção de registros nulos e outliers | `pandas` / `numpy` | ✅ Feito |
-| **3. Features e Label** | Definição do vetor $X$ (preço, categoria, mês, dia da semana, feriado) e $y$ (quantidade vendida) | `pandas` | ✅ Feito |
-| **4. Divisão dos Dados** | Corte **cronológico** por data (80% histórico passado para treino, 20% futuro recente para teste) | `pandas` (`iloc`) / `scikit-learn` | 🔄 Em andamento |
-| **5. Treinamento do Modelo** | Ajuste dos algoritmos baseline (Regressão Linear / DecisionTree / XGBoost) aos dados | `scikit-learn` | ⬜ Pendente |
-| **6. Avaliação** | Medição de erro de previsão com métricas apropriadas (MAE, RMSE, $R^2$) | `scikit-learn.metrics` | ⬜ Pendente |
-| **7. Saída / Apoio à Decisão** | Dashboard com projeção de demanda e alertas visuais de reposição de estoque | Python / Matplotlib | ⬜ Pendente |
-
----
-
-### 2. Especificação do Aprendizado de Máquina
-
-* **Tipo de Aprendizado:** **Supervisionado (Regressão / Séries Temporais)**.
-  * *Justificativa:* O modelo aprende a partir de dados históricos rotulados onde o rótulo ($y$) é a quantidade contínua de produtos vendidos em uma determinada janela de tempo.
-* **Checagem de Vazamento de Resposta (*Data Leakage*):**
-  * Verificamos coluna por coluna do dataset. Colunas como "data de entrega real" ou "status do pedido entregue" foram removidas do vetor de features $X$, pois são informações que só existem *após* a venda ter ocorrido. Apenas variáveis conhecidas no momento do planejamento de estoque foram mantidas.
-* **Estratégia de Divisão (Treino e Teste):**
-  * **Divisão Cronológica (Temporal):** Como se trata de série temporal com dependência de datas, **não** utilizaremos divisão aleatória (`train_test_split` tradicional aleatório). Os dados foram ordenados por data e divididos por ponto de corte no tempo para evitar que o modelo consulte dados do futuro durante o treinamento.
+### 1. Etapas do Pipeline do Projeto (Do dado bruto à previsão)
+1. **Entrada / Coleta de Dados:** Importação das tabelas brutas da Olist/Kaggle (`olist_orders_dataset.csv`, `olist_order_items_dataset.csv`, etc.).
+2. **Limpeza e Pré-processamento:** Tratamento de datas com `pd.to_datetime`, conversão do nível de transação para série temporal agrupada por dia/semana, remoção de registros inconsistentes ou nulos.
+3. **Engenharia de Features:** Criação de variáveis temporais (dia da semana, mês, indicador de fim de semana, cálculo de feriados via BrasilAPI) e variáveis de atraso (*lags* de vendas passadas).
+4. **Separação de Features ($X$) e Label ($y$):**
+   * **Features ($X$):** Preço unitário, categoria do produto, mês, dia da semana, indicador de feriado e histórico recente de vendas.
+   * **Label ($y$):** Quantidade diária de unidades vendidas por produto/categoria.
+5. **Checagem de Vazamento de Resposta (*Data Leakage*):** Remoção estrita das colunas geradas *pós-compra* (ex: `order_delivered_customer_date`, `freight_value` real do envio e `order_status` de entrega).
+6. **Divisão de Dados Temporal:** Ordenação por data e corte cronológico (80% histórico mais antigo para treino e 20% histórico recente para teste).
+7. **Treinamento e Avaliação:** Treinamento de modelos de regressão (`DecisionTreeRegressor`, `RandomForestRegressor`, `XGBoost`) e cálculo de métricas de erro ($MAE$, $RMSE$).
+8. **Saída / Comunicação:** Geração de relatórios e visualizações contendo a projeção de vendas diárias e alertas de reabastecimento.
 
 ---
 
-### 3. Backlog Atualizado (Rumo à AP2)
+### 2. Especificação do Modelo de Aprendizado
 
-| Item | Responsável | Status | Critério de Pronto |
+* **Entrada Real:** Dados de histórico recente de vendas de um SKU/categoria, preço cadastrado, categoria e data atual.
+* **Processamento:** O modelo de regressão treinado aplica os pesos e decisões aprendidas sobre o vetor $X$ para estimar a tendência da curva de vendas.
+* **Saída e Formato:** Um valor numérico contínuo (ex: "Estimativa de 45 unidades vendidas nos próximos 7 dias") entregue em tabela/gráfico visual para o gestor.
+* **Tipo de Aprendizado:** **Supervisionado (Regressão)**. Justificativa: O dataset possui o histórico rotulado com o valor contínuo real de unidades vendidas ($y$).
+* **Estratégia de Divisão dos Dados:**
+  * **Proporção:** 80% treino / 20% teste.
+  * **Critério:** **Cronológico**. Por se tratar de série temporal, a divisão aleatória causaria *data leakage* temporal (o modelo veria o futuro no treino).
+  * **Desbalanceamento e Stratify:** Não aplicável para regressão de valor contínuo (*stratify* é para classes categóricas).
+  * **Tamanho da Base:** Com ~100 mil pedidos, a base é grande o suficiente para a divisão temporal fixa de 80/20, sem necessidade inicial de validação cruzada expandida.
+
+---
+
+### 3. Backlog Revisado para a AP2
+
+| Item de Backlog | Responsável | Status | Critério de Pronto |
 |---|---|---|---|
-| Mapear pipeline e definir $X$ e $y$ | Individual | ✅ Feito | Seção do pipeline e tipos de dados definidos no GitHub e no formulário |
-| Limpeza final e codificação categórica | Individual | 🔄 Em andamento | `df.isnull().sum() == 0` e variáveis prontas para treinamento |
-| Divisão temporal treino/teste | Individual | 🔄 Em andamento | DataFrames $X\_train$, $X\_test$, $y\_train$, $y\_test$ criados cronologicamente |
-| Treinar Modelo Baseline | Individual | ⬜ Pendente | `modelo.fit(X_train, y_train)` executado no Colab sem erro |
-| Calcular Métricas (MAE / RMSE) | Individual | ⬜ Pendente | Métricas de erro calculadas e apresentadas visualmente |
-## 🤖 10. Declaração de Uso de IA Generativa
-> *"Declaro que utilizei a ferramenta de IA Generativa (Gemini) como apoio para a contextualização do tipo de problema de IA, mapeamento de entradas/saídas, pesquisa de soluções correlatas e organização do README.md. O conteúdo foi revisado, compreendido e validado por mim conforme o manual da disciplina."*
-## 🤖 7. Declaração de Uso de IA Generativa
-> *"Declaro que utilizei a ferramenta de IA Generativa (Gemini) como apoio para a estruturação das ideias do projeto, redação técnica da descrição do problema, organização do backlog e formatação do arquivo README.md. Todo o conteúdo foi revisado, compreendido e validado por mim conforme as diretrizes da disciplina."*
+| Mapear e documentar o pipeline no GitHub | Individual | ✅ Feito | Seção do pipeline no README.md e Ficha no Aula enviadas |
+| Concluir tratamento do dataset Olist | Individual | 🔄 Em andamento | Agrupamento por data e produto com `df.isnull().sum() == 0` |
+| Executar divisão temporal treino/teste | Individual | 🔄 Em andamento | DataFrames $X\_train$, $X\_test$, $y\_train$, $y\_test$ criados por corte de data |
+| Treinar modelo baseline (Regressão/Tree) | Individual | ⬜ Pendente | `modelo.fit(X_train, y_train)` executado no Colab |
+| Avaliar o modelo com métricas ($MAE$ e $RMSE$) | Individual | ⬜ Pendente | Métricas de erro calculadas e interpretadas no notebook |
