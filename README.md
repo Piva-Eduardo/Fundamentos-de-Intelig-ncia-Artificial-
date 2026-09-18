@@ -63,11 +63,11 @@
 
 | Item | Descrição / Tarefa | Responsável | Status |
 | :--- | :--- | :--- | :--- |
-| **US01** | Definição do escopo, problema e repositório GitHub | Eduardo Nery | ✅ Concluído |
-| **US02** | Mapeamento de entradas/saídas e justificativa de IA | Eduardo Nery | ✅ Concluído |
-| **US03** | Diagnóstico de qualidade da base Olist (Aula 5) | Eduardo Nery | ✅ Concluído |
-| **US04** | Desenho do Pipeline de dados e prevenção de leakage (Aula 7) | Eduardo Nery | ✅ Concluído |
-| **US05** | Limpeza e preparação dos dados no Colab (Aula 8) | Eduardo Nery | 🔄 Em andamento |
-| **US06** | Treinamento do Modelo *Baseline* (Linear / Tree) (Aula 9) | Eduardo Nery | ⬜ Pendente |
+| **US01** | Definição do escopo, problema e repositório GitHub | Eduardo | ✅ Concluído |
+| **US02** | Mapeamento de entradas/saídas e justificativa de IA | Eduardo | ✅ Concluído |
+| **US03** | Diagnóstico de qualidade da base Olist (Aula 5) | Eduardo | ✅ Concluído |
+| **US04** | Desenho do Pipeline de dados e prevenção de leakage (Aula 7) | Eduardo | ✅ Concluído |
+| **US05** | Limpeza e preparação dos dados no Colab (Aula 8) | Eduardo | 🔄 Em andamento |
+| **US06** | Treinamento do Modelo *Baseline* (Linear / Tree) (Aula 9) | Eduardo | ⬜ Pendente |
 | **US07** | Avaliação de Métricas de Erro ($MAE$, $RMSE$) (Aula 10) | Eduardo Nery | ⬜ Pendente |
 | Avaliar o modelo com métricas ($MAE$ e $RMSE$) | Individual | ⬜ Pendente | Métricas de erro calculadas e interpretadas no notebook |
