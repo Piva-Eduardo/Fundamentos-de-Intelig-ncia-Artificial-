@@ -71,3 +71,18 @@
 | **US06** | Treinamento do Modelo *Baseline* (Linear / Tree) (Aula 9) | Eduardo | ⬜ Pendente |
 | **US07** | Avaliação de Métricas de Erro ($MAE$, $RMSE$) (Aula 10) | Eduardo Nery | ⬜ Pendente |
 | Avaliar o modelo com métricas ($MAE$ e $RMSE$) | Individual | ⬜ Pendente | Métricas de erro calculadas e interpretadas no notebook |
+
+---
+
+## 🤖 7. Resultados do Modelo Baseline (Aula 9)
+
+Foi treinado um modelo inicial de **Regressão Linear** utilizando corte temporal fixo (80% treino / 20% teste) para estabelecer o ponto de partida (*baseline*) de comparação para algoritmos mais complexos.
+
+### Métricas Obtidas no Conjunto de Teste:
+* **Base de Treino:** 81.939 registros (80%)
+* **Base de Teste:** 20.485 registros (20%)
+* **Erro Médio Absoluto (MAE):** R$ 82,97
+* **Raiz do Erro Quadrático Médio (RMSE):** R$ 167,50
+* **Coeficiente de Determinação ($R^2$):** 0,1846
+
+> **Análise do Baseline:** O modelo baseline estabelece o teto de erro inicial. Nas próximas etapas (Aula 10), utilizaremos modelos não-lineares (Árvores de Decisão / Random Forest) e codificação de variáveis categóricas para elevar o $R^2$ e reduzir o erro médio.
