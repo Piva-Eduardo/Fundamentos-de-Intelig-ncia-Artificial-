@@ -3,7 +3,7 @@
 > **Disciplina:** Fundamentos de Inteligência Artificial | **Semestre:** 2026.2  
 > **Docente:** Profª Caroline Pacheco da Rosa  
 > **Estudante:** Eduardo Piva Nepomoceno  
-> **Notebook Prático:** [Acessar Google Colab Executado](https://colab.research.google.com/drive/11IKC0ppBqmNFw9jcWdknSAlOvoqO9Sum?usp=sharing)
+> **Caderno Prático:** [Acessar Google Colab Executado](https://colab.research.google.com/drive/1Gvbvlts-owut2urTX33vkFhW9zDinM7U)
 
 ---
 
@@ -18,7 +18,7 @@
 * **Tipo de Problema:** **Previsão de Valor Contínuo** (Regressão Supervisionada em Séries Temporais).
 * **Justificativa:** Algoritmos baseados em dados capturam padrões não-lineares de sazonalidade, datas comemorativas e tendências que regras estáticas (`if/else`) não conseguem mapear.
 * **Entradas ($X$):** Histórico de vendas, preço unitário, categoria, dia da semana, mês e feriados.
-* **Saída ($y$):** Quantidade estimada de unidades vendidas no período futuro.
+* **Saída ($y$):** Quantidade estimada de unidades vendidas / valor no período futuro.
 
 ---
 
@@ -63,14 +63,13 @@
 
 | Item | Descrição / Tarefa | Responsável | Status |
 | :--- | :--- | :--- | :--- |
-| **US01** | Definição do escopo, problema e repositório GitHub | Eduardo | ✅ Concluído |
-| **US02** | Mapeamento de entradas/saídas e justificativa de IA | Eduardo | ✅ Concluído |
-| **US03** | Diagnóstico de qualidade da base Olist (Aula 5) | Eduardo | ✅ Concluído |
-| **US04** | Desenho do Pipeline de dados e prevenção de leakage (Aula 7) | Eduardo | ✅ Concluído |
-| **US05** | Limpeza e preparação dos dados no Colab (Aula 8) | Eduardo | 🔄 Em andamento |
-| **US06** | Treinamento do Modelo *Baseline* (Linear / Tree) (Aula 9) | Eduardo | ⬜ Pendente |
-| **US07** | Avaliação de Métricas de Erro ($MAE$, $RMSE$) (Aula 10) | Eduardo Nery | ⬜ Pendente |
-| Avaliar o modelo com métricas ($MAE$ e $RMSE$) | Individual | ⬜ Pendente | Métricas de erro calculadas e interpretadas no notebook |
+| **US01** | Definição do escopo, problema e repositório GitHub | Eduardo Nery | ✅ Concluído |
+| **US02** | Mapeamento de entradas/saídas e justificativa de IA | Eduardo Nery | ✅ Concluído |
+| **US03** | Diagnóstico de qualidade da base Olist (Aula 5) | Eduardo Nery | ✅ Concluído |
+| **US04** | Desenho do Pipeline de dados e prevenção de leakage (Aula 7) | Eduardo Nery | ✅ Concluído |
+| **US05** | Limpeza e preparação dos dados no Colab (Aula 8) | Eduardo Nery | ✅ Concluído |
+| **US06** | Treinamento do Modelo *Baseline* (Linear) (Aula 9) | Eduardo Nery | ✅ Concluído |
+| **US07** | Avaliação de Métricas de Erro ($MAE$, $RMSE$) e Modelos Avançados (Aula 10) | Eduardo Nery | ⬜ Pendente |
 
 ---
 
