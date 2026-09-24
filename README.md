@@ -5,6 +5,8 @@
 > **Estudante:** Eduardo Piva Nepomoceno  
 > **Caderno Prático:** [Acessar Google Colab Executado](https://colab.research.google.com/drive/1GvbvIts-owut2urTX33vkFhW9zDinM7U?usp=sharing)
 
+---
+
 ## 🎯 1. Domínio e Descrição do Problema
 * **Domínio:** Comércio Eletrônico (E-Commerce) e Gestão de Cadeia de Suprimentos (*Supply Chain*).
 * **Problema:** Lojas virtuais enfrentam perdas por **falta de estoque** (*stockout*) e custos por **excesso de estoque** (*overstock*). A estimativa manual costuma falhar por não correlacionar múltiplos fatores simultaneamente.
@@ -31,7 +33,7 @@
 | Problema Identificado | Coluna(s) Afetada(s) | Evidência / Diagnóstico | Ação no Código |
 | :--- | :--- | :--- | :--- |
 | **Registros sem categoria** | `product_category_name` | 1,6% de nulos encontrados no `df.isnull().sum()` | Imputação com a string `'outros'` |
-| **Identificadores inúteis** | `order_id`, `customer_id` | IDs únicos que causam memorização e *overfitting* | Remoção completa antes do treino |
+| **Identificadoresúteis** | `order_id`, `customer_id` | IDs únicos que causam memorização e *overfitting* | Remoção completa antes do treino |
 | **Risco de Data Leakage** | `review_score`, `order_delivered_customer_date` | Dados gerados apenas *pós-compra* | Remoção estrita das features $X$ |
 | **Dias sem vendas** | `order_purchase_timestamp` | Lacunas na série temporal de SKUs | Reamostragem diária preenchendo zeros |
 
@@ -61,13 +63,13 @@
 
 | Item | Descrição / Tarefa | Responsável | Status |
 | :--- | :--- | :--- | :--- |
-| **US01** | Definição do escopo, problema e repositório GitHub | Eduardo Nery | ✅ Concluído |
-| **US02** | Mapeamento de entradas/saídas e justificativa de IA | Eduardo Nery | ✅ Concluído |
-| **US03** | Diagnóstico de qualidade da base Olist (Aula 5) | Eduardo Nery | ✅ Concluído |
-| **US04** | Desenho do Pipeline de dados e prevenção de leakage (Aula 7) | Eduardo Nery | ✅ Concluído |
-| **US05** | Limpeza e preparação dos dados no Colab (Aula 8) | Eduardo Nery | ✅ Concluído |
-| **US06** | Treinamento do Modelo *Baseline* (Linear) (Aula 9) | Eduardo Nery | ✅ Concluído |
-| **US07** | Avaliação de Métricas de Erro ($MAE$, $RMSE$) e Modelos Avançados (Aula 10) | Eduardo Nery | ⬜ Pendente |
+| **US01** | Definição do escopo, problema e repositório GitHub | Eduardo Piva Nepomoceno | ✅ Concluído |
+| **US02** | Mapeamento de entradas/saídas e justificativa de IA | Eduardo Piva Nepomoceno | ✅ Concluído |
+| **US03** | Diagnóstico de qualidade da base Olist (Aula 5) | Eduardo Piva Nepomoceno | ✅ Concluído |
+| **US04** | Desenho do Pipeline de dados e prevenção de leakage (Aula 7) | Eduardo Piva Nepomoceno | ✅ Concluído |
+| **US05** | Limpeza e preparação dos dados no Colab (Aula 8) | Eduardo Piva Nepomoceno | ✅ Concluído |
+| **US06** | Treinamento do Modelo *Baseline* (Linear) (Aula 9) | Eduardo Piva Nepomoceno | ✅ Concluído |
+| **US07** | Avaliação de Métricas de Erro ($MAE$, $RMSE$) e Modelos Avançados (Aula 10) | Eduardo Piva Nepomoceno | ⬜ Pendente |
 
 ---
 
