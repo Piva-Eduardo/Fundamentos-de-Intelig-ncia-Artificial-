@@ -4,7 +4,6 @@
 > **Docente:** Profª Caroline Pacheco da Rosa  
 > **Estudante:** Eduardo Piva Nepomoceno  
 > **Caderno Prático:** [Acessar Google Colab Executado]([https://colab.research.google.com/drive/1Gvbvlts-owut2urTX33vkFhW9zDinM7U](https://colab.research.google.com/drive/1GvbvIts-owut2urTX33vkFhW9zDinM7U?usp=sharing))
-
 ---
 
 ## 🎯 1. Domínio e Descrição do Problema
