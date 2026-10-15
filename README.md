@@ -70,11 +70,6 @@
 | **US05** | Limpeza e preparação dos dados no Colab (Aula 8) | Eduardo Piva Nepomoceno | ✅ Concluído |
 | **US06** | Treinamento do Modelo Baseline (Linear) (Aula 9) | Eduardo Piva Nepomoceno | ✅ Concluído |
 | **US07** | Engenharia de Lag Features (t-1, t-7) e Média Móvel (Aula 12) | Eduardo Piva Nepomoceno | 🔄 Em andamento |
-| **US08** | Treinamento e avaliação do modelo Random Forest Regressor (Aula 13) | Eduardo Piva Nepomoceno | ⬜ Pendente |
-| **US09** | Treinamento e otimização do modelo XGBoost Regressor (Aula 14) | Eduardo Piva Nepomoceno | ⬜ Pendente |
-| **US10** | Comparação direta de métricas (MAE, RMSE, R²) entre modelos (Aula 15) | Eduardo Piva Nepomoceno | ⬜ Pendente |
-| **US11** | Análise de Viés, Ética, Limitações e Fechamento do Relatório Final (Aula 16) | Eduardo Piva Nepomoceno | ⬜ Pendente |
-| **US12** | Atualização do README.md e Submissão dos Entregáveis Finais da AS (Aula 17) | Eduardo Piva Nepomoceno | ⬜ Pendente |
 
 ## 🤖 7. Resultados do Modelo Baseline (Aula 9)
 
