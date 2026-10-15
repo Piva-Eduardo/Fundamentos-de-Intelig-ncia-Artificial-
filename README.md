@@ -59,19 +59,7 @@
 
 ---
 
-## 📋 6. Backlog Unificado do Projeto (AP2)
-
-| Item | Descrição / Tarefa | Responsável | Status |
-| :--- | :--- | :--- | :--- |
-| **US01** | Definição do escopo, problema e repositório GitHub | Eduardo Piva Nepomoceno | ✅ Concluído |
-| **US02** | Mapeamento de entradas/saídas e justificativa de IA | Eduardo Piva Nepomoceno | ✅ Concluído |
-| **US03** | Diagnóstico de qualidade da base Olist (Aula 5) | Eduardo Piva Nepomoceno | ✅ Concluído |
-| **US04** | Desenho do Pipeline de dados e prevenção de leakage (Aula 7) | Eduardo Piva Nepomoceno | ✅ Concluído |
-| **US05** | Limpeza e preparação dos dados no Colab (Aula 8) | Eduardo Piva Nepomoceno | ✅ Concluído |
-| **US06** | Treinamento do Modelo *Baseline* (Linear) (Aula 9) | Eduardo Piva Nepomoceno | ✅ Concluído |
-| **US07** | Avaliação de Métricas de Erro ($MAE$, $RMSE$) e Modelos Avançados (Aula 10) | Eduardo Piva Nepomoceno | ⬜ Pendente |
-
----
+📋 6. Backlog Unificado do Projeto (AS)ItemDescrição / TarefaResponsávelStatusUS01Definição do escopo, problema e repositório GitHubEduardo Piva Nepomoceno✅ ConcluídoUS02Mapeamento de entradas/saídas e justificativa de IAEduardo Piva Nepomoceno✅ ConcluídoUS03Diagnóstico de qualidade da base Olist (Aula 5)Eduardo Piva Nepomoceno✅ ConcluídoUS04Desenho do Pipeline de dados e prevenção de leakage (Aula 7)Eduardo Piva Nepomoceno✅ ConcluídoUS05Limpeza e preparação dos dados no Colab (Aula 8)Eduardo Piva Nepomoceno✅ ConcluídoUS06Treinamento do Modelo Baseline (Linear) (Aula 9)Eduardo Piva Nepomoceno✅ ConcluídoUS07Engenharia de Lag Features ($t-1$, $t-7$) e Média Móvel (Aula 12)Eduardo Piva Nepomoceno🔄 Em andamentoUS08Treinamento e avaliação do modelo Random Forest Regressor (Aula 13)Eduardo Piva Nepomoceno⬜ PendenteUS09Treinamento e otimização do modelo XGBoost Regressor (Aula 14)Eduardo Piva Nepomoceno⬜ PendenteUS10Comparação direta de métricas ($MAE$, $RMSE$, $R^2$) entre modelos (Aula 15)Eduardo Piva Nepomoceno⬜ PendenteUS11Análise de Viés, Ética, Limitações e Fechamento do Relatório Final (Aula 16)Eduardo Piva Nepomoceno⬜ PendenteUS12Atualização do README.md e Submissão dos Entregáveis Finais da AS (Aula 17)Eduardo Piva Nepomoceno⬜ Pendente
 
 ## 🤖 7. Resultados do Modelo Baseline (Aula 9)
 
